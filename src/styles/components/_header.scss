@@ -1,0 +1,20 @@
+.fixed-header {
+    background-color: #fff;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0px;
+    height: 100px;
+}
+
+#header {
+    max-width: 940px;
+    padding: 15px 10px 29px;
+    margin: 0 auto;
+}
+
+header#header {
+    position: relative;
+    padding-top: 42px;
+}
+
