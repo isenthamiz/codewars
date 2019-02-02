@@ -1,7 +1,8 @@
 import React from 'react';
+import Login from './Login';
 
 const openLoign = {top: '0px'};
-const closeLogin = {top: '-520px'};
+const closeLogin = {top: '-370px'};
 
 
 export default class Header extends React.Component {
@@ -30,6 +31,7 @@ export default class Header extends React.Component {
                     <div className="row">
                         <div className="header-contact-form-slide-container" style={ this.state.loginbtn ? openLoign : closeLogin }>
                             <div className="header-contact-form-container">
+                                <Login />
                             </div>
                             <div className="header-contact-link closed shadow" onClick={this.onLoginClick}>
                                 

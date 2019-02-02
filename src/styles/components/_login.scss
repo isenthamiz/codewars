@@ -1,0 +1,27 @@
+.login-form {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+    padding: 30px 20px;
+    background: #ececec;
+    border-radius: 8px;
+    margin: 6px 0 20px 0px;
+    box-sizing:border-box;
+}
+
+#login-btn {
+    cursor: pointer;
+    text-decoration: none !important;
+    min-width: 134px;
+    max-width: 134px;
+    text-transform: uppercase;
+    color: #fff;
+    border: 0;
+    font: 14px 'opensans-semibold',Arial,sans-serif;
+    border-radius: 6px;
+    line-height: 31px;
+    background: #df7f27;
+    padding-bottom: 1px;
+    display: block;
+    text-align: center;
+}
