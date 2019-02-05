@@ -1,10 +1,10 @@
 const loginDefaultState = {
     userId: undefined,
-    userName: undefined,
+    name: undefined,
     isLoggedIn: false,
-    roundOne: 'DEACTIVATE',
-    roundTwo: 'DEACTIVATE',
-    roundThree: 'DEACTIVATE',
+    quizohilic: 'DEACTIVATE',
+    codingame: 'DEACTIVATE',
+    cfc: 'DEACTIVATE',
     token: undefined
 }
 
@@ -13,20 +13,20 @@ const loginReducer = (state = loginDefaultState, action) => {
         case 'LOGIN':
             return {
                 userId: action.data.userId,
-                userName: action.data.userName,
+                name: action.data.name,
                 isLoggedIn: action.isLoggedIn,
-                roundOne: action.data.roundOne,
-                roundTwo: action.data.roundTwo,
-                roundThree: action.data.roundThree
+                quizohilic: action.data.quizohilic,
+                codingame: action.data.codingame,
+                cfc: action.data.cfc
             }
         case 'LOGOUT':
             return {
                 userId: undefined,
                 userName: undefined,
                 isLoggedIn: false,
-                roundOne: 'DEACTIVATE',
-                roundTwo: 'DEACTIVATE',
-                roundThree: 'DEACTIVATE'
+                quizohilic: 'DEACTIVATE',
+                codingame: 'DEACTIVATE',
+                cfc: 'DEACTIVATE'
             }
         default:
             return state

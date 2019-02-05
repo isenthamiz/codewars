@@ -31,13 +31,13 @@ class Login extends React.Component {
 
         axios.post('http://localhost:3000/api/auth/login',JSON.stringify(data),config).then((res)=>{
             const data = res.data;
-            console.log(data);
+            console.log(res);
             const loginData = {
-                userId: '1234567',
-                userName: 'Senthamiz Kumaran',
-                roundOne: 'ACTIVATE',
-                roundTwo: 'DEACTIVATE',
-                roundThree: 'DEACTIVATE',
+                userId: data.id,
+                name: data.name,
+                quizohilic: data.quizohilic,
+                codingame: data.codingame,
+                cfc: data.cfc,
             }
             console.log(loginData);
             this.props.dispatch(userLogin(loginData, true));

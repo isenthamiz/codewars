@@ -1,6 +1,18 @@
 import React from 'react';
+import {connect} from 'react-redux'
 
-export default class Banner extends React.Component {
+import {userLogout} from '../actions/login';
+
+class Banner extends React.Component {
+    constructor(props){
+        super(props);
+        this.logout = this.logout.bind(this);
+    }
+
+    logout() {
+        this.props.dispatch(userLogout())
+    }
+
     render() {
         return (
             <div>
@@ -16,11 +28,13 @@ export default class Banner extends React.Component {
                             </span>
                             <div className="custom-hubspot-header-copy centered">
                                 <a href="#">
-                                    <h1 className="cta-header"><div>CMT Coding</div><div className="cta-sub-header">Contest</div></h1>
+                                    <h1><div className="cta-sub-header">Welcome,</div><div className="cta-header">{ !this.props.name ? "Guest" : this.props.name}</div></h1>
                                     <p>Arm your teams with the tools to<br /> become Champion of <i>CODE WAR</i>.</p>
                                     <br />
                                 </a>
-                                <a className="cta-button-green btn" href="#">Learn More</a>
+                                {
+                                    this.props.name && <button className="btn btn-danger" onClick={this.logout}>Logout</button>
+                                }
                             </div>
                         </div>
                     </div>
@@ -29,3 +43,11 @@ export default class Banner extends React.Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        name: state.name,
+    }
+}
+
+export default connect(mapStateToProps)(Banner);
