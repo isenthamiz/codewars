@@ -1,7 +1,12 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import ContestDetails from './ContestDetails';
 
-export default class Contest extends React.Component {
+class Contest extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <div>
@@ -10,24 +15,24 @@ export default class Contest extends React.Component {
                         <div className="inner-content">
                             <div className="row">
                                 <div className="boxes">
-                                    <div className="box roundone">
+                                    <div className={this.props.roundOne === 'ACTIVATE' ? "box roundone" : "box roundone box-disabled"}>
                                         <a href="">
-                                            <h2>Test Your Knowledge</h2>
-                                            <p>Create story-driven visual narratives that motivate your audience to act</p>
+                                            <h2 id="round-one-h">Test Your Knowledge</h2>
+                                            <p id="round-one-p">Create story-driven visual narratives that motivate your audience to act</p>
                                             <span className="more">
                                                 <span className="link-box">Contest Now</span>
                                             </span>
                                         </a>
                                     </div>
-                                    <div className="box roundtwo">
+                                    <div className={this.props.roundTwo === 'ACTIVATE' ? "box roundtwo" : "box roundtwo box-disabled"}>
                                         <a href="">
-                                            <h2>Solve  <br />Puzzle</h2><p>Transform text-heavy slides into easy-to-interpret visuals</p>
+                                            <h2 id="round-two-h">Solve  <br />Puzzle</h2><p id="round-two-p">Transform text-heavy slides into easy-to-interpret visuals</p>
                                             <span className="more"><span className="link-box">Contest Now</span></span>
                                         </a>
                                     </div>
-                                    <div className="box roundthree">
+                                    <div className={this.props.roundThree === 'ACTIVATE' ? "box roundthree" : "box roundthree box-disabled"}>
                                         <a href="">
-                                            <h2>Crack the<br />Code</h2><p>Convert data into valuable insights that accelerate decision-making</p>
+                                            <h2 id="round-three-h">Crack the<br />Code</h2><p id="round-three-p">Convert data into valuable insights that accelerate decision-making</p>
                                             <span className="more"><span className="link-box">Contest Now</span></span>
                                         </a>
                                     </div>
@@ -41,3 +46,13 @@ export default class Contest extends React.Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        roundOne: state.roundOne,
+        roundTwo: state.roundTwo,
+        roundThree: state.roundThree
+    }
+}
+
+export default connect(mapStateToProps)(Contest);
