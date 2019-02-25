@@ -1,0 +1,57 @@
+.rules {
+    margin-top: 8rem;
+    padding: 2rem;
+    background-color: $theme-white;
+    height: 550px;
+    max-height: 1000px;
+    width: 100%;
+}
+
+.header__right h4 {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-bottom: 1rem;
+}
+
+.header__left h4 {
+    float: left;
+    font-size: 1.5rem;
+    font-weight: bold; 
+    padding-bottom: 1rem;
+}
+
+.btn-area {
+    margin-top: 1rem;
+
+}
+
+#qna {
+    display: block;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+
+#start {
+    border: 1px solid #dedede;
+    background: $theme-white;
+    border-radius: 7px;
+    overflow: hidden;
+    display: block;
+    font-weight: bold;
+    padding: 12px;
+    height: 70px;
+    width: 140px;
+    color: #5a5a5a;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#start:hover {
+    background: $theme-orange;
+    color: $theme-white;
+}
+
+.background-img {
+    background: url('./assets/rules-background.jpg') no-repeat;
+}

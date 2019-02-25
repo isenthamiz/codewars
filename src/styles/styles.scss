@@ -1,11 +1,14 @@
-@import './base/base';
 @import './base/settings';
+@import './base/base';
+@import './components/summary';
 @import './components/banner';
 @import './components/contest';
 @import './components/contestdetails';
 @import './components/footer';
 @import './components/header';
 @import './components/login';
+@import './components/modal';
 @import './components/quizohilic';
+@import './components/rules';
 @import './components/sliders';
 

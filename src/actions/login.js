@@ -1,3 +1,6 @@
+
+
+
 export const userLogin = (data = {}, isLoggedIn = false) => {
     return {
         type: 'LOGIN',
@@ -9,5 +12,11 @@ export const userLogin = (data = {}, isLoggedIn = false) => {
 export const userLogout = () => {
     return {
         type: 'LOGOUT'
+    }
+}
+
+export const completeQuizohilic = () => {
+    return {
+        type: 'COMPLETE_QUIZOHILIC'
     }
 }

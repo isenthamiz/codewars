@@ -1,0 +1,172 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+
+a.btn {
+  width: 200px;
+  padding: 18px 0;
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 0;
+  background: #e2525c;
+}
+
+
+.head { 
+  width: 100%;
+  height: 50px;
+ padding: 10px;
+ color: $theme-white;
+ text-align: center;
+  overflow: hidden;
+  background: $theme-warning;
+}
+
+.head-oops { 
+  width: 100%;
+  height: 50px;
+ padding: 10px;
+ color: $theme-white;
+ text-align: center;
+  overflow: hidden;
+  background: $theme-red;
+}
+
+.head h4 {
+    font-family: 'Montserrat', Arial,       Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+.head-oops h4 {
+  font-family: 'Montserrat', Arial,       Helvetica, sans-serif;
+  font-size: 25px;
+}
+
+.btn-close {
+  font-size: 28px;
+  display: block;
+  float: right;
+  color: #fff;
+}
+
+.content {
+  padding: 2%;
+}
+
+.good-job {
+  text-align: center;
+  font-family: 'Montserrat', Arial,       Helvetica, sans-serif;
+  color: #5a5a5a;
+}
+
+.oops {
+  text-align: center;
+  font-family: 'Montserrat', Arial,       Helvetica, sans-serif;
+  color: #5a5a5a;
+}
+
+.good-job .fa-hourglass-end {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.oops .fa-exclamation-circle {
+  font-size: 90px;
+  margin-bottom: 20px;
+  animation: blinking 1s infinite;
+}
+
+@keyframes blinking {
+  0% { color: #e2525c}
+  49% { color: transparent } 
+  50% { color: transparent }
+  99% { color: #e2525c }
+  100% { color:#e2525c }
+}
+
+.good-job h4 {
+  font-size: 25px;
+}
+
+.oops h4 {
+  font-size: 25px;
+}
+
+.ReactModal__Content.ReactModal__Content--after-open {
+    padding: 0px !important;
+}
+
+.button-done {
+    margin: auto;
+    margin-top:20px;
+    border: 1px solid $theme-warning;
+    background: lighten($color: $theme-warning, $amount: 10%);
+    border-radius: 7px;
+    overflow: hidden;
+    display: block;
+    font-weight: bold;
+    padding: 12px;
+    height: 50px;
+    width: 80px;
+    color: #5a5a5a;
+    text-transform: uppercase;
+}
+
+.button-done:hover {
+    background: $theme-warning;
+    color: white;
+}
+
+.btn-yes-no {
+  display: flex;
+  float: right;
+}
+
+.button-yes {
+  margin:20px;
+  border: 1px solid $theme-red;
+  background: lighten($color: $theme-red, $amount: 10%);
+  border-radius: 7px;
+  overflow: hidden;
+  display: block;
+  font-weight: bold;
+  padding: 12px;
+  height: 50px;
+  width: 80px;
+  color: #5a5a5a;
+  text-transform: uppercase;
+}
+
+.button-yes:hover {
+  background: $theme-red;
+  color: white;
+}
+
+.button-no {
+  margin: auto;
+  margin-top:20px;
+  border: 1px solid $theme-green;
+  background: lighten($color: $theme-green, $amount: 10%);
+  border-radius: 7px;
+  overflow: hidden;
+  display: block;
+  font-weight: bold;
+  padding: 12px;
+  height: 50px;
+  width: 80px;
+  color: #5a5a5a;
+  text-transform: uppercase;
+}
+
+.button-no:hover {
+  background: $theme-green;
+  color: white;
+}
+

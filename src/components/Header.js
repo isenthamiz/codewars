@@ -1,24 +1,24 @@
 import React from 'react';
 import Login from './Login';
+import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 
-const openLoign = {top: '0px'};
-const closeLogin = {top: '-370px'};
 
-
-export default class Header extends React.Component {
+class Header extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             loginbtn: false
         }
         this.onLoginClick = this.onLoginClick.bind(this);
+
     }
 
     onLoginClick() {
 
         this.setState((prevState)=>{
             return {
-                loginbtn: !prevState.loginbtn
+                loginbtn: !prevState.loginbtn 
             }
         })
 
@@ -29,11 +29,11 @@ export default class Header extends React.Component {
             <div className="fixed-header shadow">
                 <header id="header">
                     <div className="row">
-                        <div className="header-contact-form-slide-container" style={ this.state.loginbtn ? openLoign : closeLogin }>
+                        <div className= { this.state.loginbtn ? "header-contact-form-slide-container open-login" : "header-contact-form-slide-container close-login" }>
                             <div className="header-contact-form-container">
                                 <Login onLoginClick={this.onLoginClick} />
                             </div>
-                            <div className="header-contact-link closed shadow" onClick={this.onLoginClick}>
+                            <div className = {!this.props.isLoggedIn ? "header-contact-link closed shadow-sm" : "header-contact-link closed shadow-sm login-button-disable"}  onClick={this.onLoginClick}>
                                 
                             </div>
                         </div>
@@ -47,7 +47,7 @@ export default class Header extends React.Component {
                         <div className="col">
                             <ul id="nav">
                                 <li className="dashboard">
-                                    <a href="">Dashbaord</a>
+                                    <Link to="/">Dashbaord</Link>
                                 </li>
                                 <li className="about">
                                   <a href="">About</a>
@@ -64,3 +64,11 @@ export default class Header extends React.Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        isLoggedIn: state.isLoggedIn
+    }
+}
+
+export default connect(mapStateToProps)(Header);

@@ -29,7 +29,7 @@ class Banner extends React.Component {
                             <div className="custom-hubspot-header-copy centered">
                                 <a href="#">
                                     <h1><div className="cta-sub-header">Welcome,</div><div className="cta-header">{ !this.props.name ? "Guest" : this.props.name}</div></h1>
-                                    <p>Arm your teams with the tools to<br /> become Champion of <i>CODE WAR</i>.</p>
+                                    <p>Being a coding geek seems to be your inner calling? <br/> Aaaah! Then this is your cup of cake.</p>
                                     <br />
                                 </a>
                                 {

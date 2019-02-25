@@ -1,20 +1,22 @@
 .fixed-header {
     background-color: #fff;
+    background: url('./assets/header.jpg') no-repeat;
     position: fixed;
-    width: 100%;
+    width:100%;
     z-index: 1000;
     top: 0px;
 }
 
 #header {
     max-width: 940px;
-    padding: 15px 10px 15px;
+    // padding: 15px 10px 15px;
+    padding-top:42px;
     margin: 0 auto;
 }
 
 header#header {
     position: relative;
-    padding-top: 42px;
+    // padding-top: 42px;
 }
 
 .logo {
@@ -49,6 +51,7 @@ header#header {
     font-weight: bold;
     padding: 12px;
     height: 40px;
+    background-color: $theme-white;
     color: #5a5a5a;
     text-decoration: none;
 }
@@ -95,8 +98,8 @@ li {
     top: 0px;
     width: 100%;
     height: 370px;
-    background: transparent url(/assets/form-background-new.jpg) center top no-repeat;
-    background-size: cover;
+    background: url(/assets/form-background-new.jpg) center;
+    //background-size: cover;
     padding: 30px 180px;
     box-sizing: border-box;
 }
@@ -113,9 +116,35 @@ li {
 .header-contact-form-slide-container .closed {
     background: transparent url(/assets/button-get-in-touch.png) center top no-repeat;
     background-size: cover;
+    cursor: pointer;
+}
+
+.open-login {
+    top: 0px;
+    animation: open 0.5s;
+}
+
+.close-login {
+    top: -370px;
+    animation: close 0.5s;
+}
+
+@keyframes open {
+    0% { top: -370px}
+    100% {top: 0px}
+}
+
+@keyframes close {
+    0% { top: 0px}
+    100% { top: -370px }
 }
 
 #bottomheader {
     margin-top: 1rem;  
+}
+
+.login-button-disable{
+    pointer-events: none;
+    opacity: .5;
 }
 
