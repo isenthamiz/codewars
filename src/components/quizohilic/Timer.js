@@ -20,6 +20,10 @@ export default class Timer extends React.Component {
         this.startTimer();
     }
 
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }
+
     secondsToTime(secs) {
         let hours = Math.floor(secs / (60 * 60));
 
@@ -59,6 +63,8 @@ export default class Timer extends React.Component {
             }
         }
     }
+
+    
 
     render() {
         return (

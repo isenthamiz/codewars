@@ -22,7 +22,7 @@ class Banner extends React.Component {
                             <span className="hs-cta-wrapper" >
                                 <span className="hs-cta-node" data-hs-drop="true">
                                     <a className="cta_button" href="#" cta_dest_link="#">
-                                        <img className="hs-cta-img" src={require('../styles/assets/ccc.jpg')} mce_noresize="1" height="329" width="100%" />
+                                        <img className="hs-cta-img" src='/assets/ccc.jpg' mce_noresize="1" height="329" width="100%" />
                                     </a>
                                 </span>
                             </span>

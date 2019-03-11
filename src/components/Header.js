@@ -1,5 +1,6 @@
 import React from 'react';
 import Login from './Login';
+import withErrorHandler from './errorHandler/withErrorHandler';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 

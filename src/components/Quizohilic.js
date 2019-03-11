@@ -1,13 +1,19 @@
-import React from 'react';
+import React, {lazy, Suspense, Component} from 'react';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom';
 
+import withErrorHandler from './errorHandler/withErrorHandler';
 import CompleteMessage from './quizohilic/CompleteMessage';
 import QuestionTimer from './quizohilic/QuestionTimer';
 import Timer from './quizohilic/Timer';
 import Questions from './quizohilic/Questions';
 import Options from './quizohilic/Options';
 import QuizSummary from './quizohilic/QuizSummary';
+
+
+
+// const CompleteMessage = React.lazy(() => import("./quizohilic/CompleteMessage"));
+//  const QuestionTimer = React.lazy(() => import('./quizohilic/QuestionTimer'));
 
 
 let uid;
@@ -35,7 +41,6 @@ class Quizohilic extends React.Component {
         this.handleTimeout = this.handleTimeout.bind(this);
 
         this.onBlur = this.onBlur.bind(this);
-        this.onFocus = this.onFocus.bind(this);
 
         this.setSeconds = this.setSeconds.bind(this);
         this.handleSetActive = this.handleSetActive.bind(this);
@@ -80,11 +85,12 @@ class Quizohilic extends React.Component {
     componentDidMount() {
         console.log('Did Mount Stage')
         // console.log(this.props.match.params.lang);
-        window.addEventListener("blur", this.onBlur, true);
-        window.addEventListener("focus", this.onFocus, true);       
+        window.addEventListener("blur", this.onBlur, true);      
     }
 
-
+    componentWillUnmount() {
+        window.removeEventListener("blur", this.onBlur);
+    }
 
     setSeconds(s) {
         this.setState(()=>{
@@ -235,7 +241,7 @@ class Quizohilic extends React.Component {
         })
     }
 
-    onBlur(e) {
+    onBlur() {
         
         if(!document.hasFocus()) {
             console.log('Out of Focus');
@@ -246,16 +252,6 @@ class Quizohilic extends React.Component {
             })
         } 
 
-    }
-
-    onFocus(e) {
-
-        // this.setState(()=>{
-        //     return {
-        //         isActive: true
-        //     }
-        // })
-        
     }
 
     handleTimeout() {
@@ -282,9 +278,12 @@ class Quizohilic extends React.Component {
 
             <div className="quizohilic">
                 {this.state.showSummary && <QuizSummary handlePageChange={this.handlePageChange} handleCloseSummary={this.handleCloseSummary} selected={this.state.selected} open={true} />}
-                {this.state.isOpenModal && <CompleteMessage modal= "Completed" closeModal = {this.closeModal} />}
-                {!this.state.isActive && <CompleteMessage modal="Voilation" closeModal = {this.closeModal} continueModal={this.continueModal} handleSetActive={this.handleSetActive} />}
-                {this.state.isTimeOut && <CompleteMessage modal="Timeout" closeModal = {this.closeModal} />}
+                {/* <Suspense fallback={<div>loading...</div>}> */}
+                {this.state.isOpenModal && <CompleteMessage modal= "Completed" closeModal = {this.closeModal} id = {this.props.match.params.id} round = "quizohilic" />}
+                {!this.state.isActive && <CompleteMessage modal="Voilation" closeModal = {this.closeModal} continueModal={this.continueModal} handleSetActive={this.handleSetActive} id = {this.props.match.params.id} round = "quizohilic"  />}
+                {this.state.isTimeOut && <CompleteMessage modal="Timeout" closeModal = {this.closeModal} id = {this.props.match.params.id} round = "quizohilic"  />}
+                {/* </Suspense> */}
+
                 <div className="row">
                     <div className="col info">
                             <div className="row info-bar">
@@ -326,7 +325,9 @@ class Quizohilic extends React.Component {
                         <div className="row">
                             
                             <div className="col">
+                                {/* <Suspense fallback={<div>Loading...</div>}> */}
                                 <QuestionTimer freez={this.state.freez} handlePageNext={this.handlePageNext} setSeconds={this.setSeconds} seconds={this.state.seconds} />
+                                {/* </Suspense> */}
                             </div>
                             
                         </div>
@@ -369,4 +370,4 @@ class Quizohilic extends React.Component {
     }
 }
 
-export default withRouter(Quizohilic);
+export default withRouter(withErrorHandler(Quizohilic, axios));

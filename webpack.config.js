@@ -5,10 +5,14 @@ const dotenv = require('dotenv').config({path: path.join(__dirname,'environment'
 module.exports = () => {
 
     const envConfig = dotenv.parsed;
+
+    console.log(envConfig);
     
     return {
 
-        entry: './src/app.js',
+        entry: {
+            app: './src/app.js',
+        },
         output: {
             path: path.join(__dirname, 'public'),
             filename: 'bundle.js'
@@ -17,8 +21,8 @@ module.exports = () => {
             new webpack.DefinePlugin({
                 "process.env": JSON.stringify(envConfig),
             })
-            
         ],
+
     
         module: {
             rules: [
@@ -45,7 +49,7 @@ module.exports = () => {
                 }
             ]
         },
-        devtool: 'source-map',
+        devtool: 'cheap-module-eval-source-map',
         devServer: {
             contentBase: path.join(__dirname, 'public'),
             historyApiFallback: true,

@@ -54,7 +54,7 @@ export default class QuizSummary extends React.Component {
                     }}>
                         <div className="summary-head">
                             <h4>Quiz Summary</h4>
-                            <h4 id="close-btn"><i className="fas fa-times" onClick={this.props.handleCloseSummary}></i></h4>
+                            <h4 id="close-btn"><i className="fa fa-times" onClick={this.props.handleCloseSummary}></i></h4>
                         </div>
                         <div className="summary-body">
                             {this.getOptions()}

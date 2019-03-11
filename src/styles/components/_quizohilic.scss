@@ -34,7 +34,7 @@
     //width: 100%;
 
     // background: rgba(75, 75, 75, 0.8);
-    background: url('./assets/body-background.jpg') no-repeat;
+    background: url('/assets/body-background.jpg') no-repeat;
 }
 
 .area {
@@ -175,10 +175,6 @@ a .fa-angle-left{
 a .fa-angle-left.disabled{
     color: #5a5a5a;
     pointer-events: none;
-}
-
-a .fa-angle-left .disabled{
-    color: #5a5a5a;
 }
 
 a .fa-angle-right:hover{

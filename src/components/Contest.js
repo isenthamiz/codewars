@@ -35,7 +35,7 @@ class Contest extends React.Component {
                             <div className={(this.props.quizohilic === 'ACTIVATE') || (this.props.quizohilic === 'COMPLETED') ? "box" : "box box-disabled"}>
                                 <div className="box-head">
                                     <h4>Quizohilic</h4>
-                                    <h4 className={this.props.quizohilic === 'COMPLETED' ? "enable" : "disable"}><i className="fas fa-check-circle"></i></h4>
+                                    <h4 className={this.props.quizohilic === 'COMPLETED' ? "enable" : "disable"}><i className="fa fa-check-circle"></i></h4>
                                 </div>
                                 <div className="box-content">
                                      <img className='box-icon' src='/assets/mcq.png' />
@@ -46,7 +46,7 @@ class Contest extends React.Component {
                             <div className={((this.props.codingame === 'ACTIVATE') || (this.props.codingame === 'COMPLETED')) ? "box" : "box box-disabled"}>
                             <div className="box-head">
                                 <h4>CodinGame</h4>
-                                <h4 className={this.props.codingame === 'COMPLETED' ? "enable" : "disable"}><i className="fas fa-check-circle"></i></h4>
+                                <h4 className={this.props.codingame === 'COMPLETED' ? "enable" : "disable"}><i className="fa fa-check-circle"></i></h4>
                                 </div>
                                 <div className="box-content">
                                 <img className='box-icon' src='/assets/codingame.png' />
@@ -57,7 +57,7 @@ class Contest extends React.Component {
                             <div className={(this.props.cfc === 'ACTIVATE') || (this.props.cfc === 'COMPLETED') ? "box" : "box box-disabled"}>
                             <div className="box-head">
                                 <h4>Crack For Code</h4>
-                                <h4 className={this.props.cfc === 'COMPLETED' ? "enable" : "disable"}><i className="fas fa-check-circle"></i></h4>
+                                <h4 className={this.props.cfc === 'COMPLETED' ? "enable" : "disable"}><i className="fa fa-check-circle"></i></h4> 
                                 </div>
                                 <div className="box-content">
                                 <img className='box-icon' src='/assets/cfc.png' />

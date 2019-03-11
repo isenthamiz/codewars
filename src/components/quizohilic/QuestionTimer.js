@@ -17,6 +17,10 @@ export default class QuestionTimer extends React.Component {
         this.startTimerInterval();
     }
 
+    componentWillUnmount() {
+        clearInterval(this.timer_question);
+    }
+
 
     secondsToTime(secs) {
         let hours = Math.floor(secs / (60 * 60));

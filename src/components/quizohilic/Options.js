@@ -38,33 +38,37 @@ export default class Options extends React.Component {
                                     <h4>Options</h4>
                                 </div>
                                 <div className="list-group">
+                                 {this.props.options.a &&
                                     <a id='A' onClick={this.props.handleAnswerClick} className={this.props.selected[this.props.activePage-1] === 'a' ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action"}>
                                         <div className="d-flex w-100 justify-content-between" style={{ pointerEvents: 'none' }}>
                                             <p className="mb-1" style={{ pointerEvents: 'none' }}>{this.props.options.a}</p>
                                             <small style={{ pointerEvents: 'none' }}>A</small>
                                         </div>
 
-                                    </a>
+                                 </a> }
+                                 {this.props.options.b && 
                                     <a id='B' onClick={this.props.handleAnswerClick} className={this.props.selected[this.props.activePage-1] === 'b' ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action"}>
                                         <div className="d-flex w-100 justify-content-between" style={{ pointerEvents: 'none' }}>
                                             <p className="mb-1" style={{ pointerEvents: 'none' }}>{this.props.options.b}</p>
                                             <small style={{ pointerEvents: 'none' }}>B</small>
                                         </div>
 
-                                    </a>
+                                 </a> }
+                                 {this.props.options.c && 
                                     <a id='C' onClick={this.props.handleAnswerClick} className={this.props.selected[this.props.activePage-1] === 'c' ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action"}>
                                         <div className="d-flex w-100 justify-content-between" style={{ pointerEvents: 'none' }}>
                                             <p className="mb-1" style={{ pointerEvents: 'none' }}>{this.props.options.c}</p>
                                             <small style={{ pointerEvents: 'none' }}>C</small>
                                         </div>
 
-                                    </a>
+                                    </a>}
+                                {this.props.options.d &&
                                     <a id='D' onClick={this.props.handleAnswerClick} className={this.props.selected[this.props.activePage-1] === 'd' ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action"}>
                                         <div className="d-flex w-100 justify-content-between" style={{ pointerEvents: 'none' }}>
                                             <p className="mb-1" style={{ pointerEvents: 'none' }}>{this.props.options.d}</p>
                                             <small style={{ pointerEvents: 'none' }}>D</small>
                                         </div>
-                                    </a>
+                                    </a>}
                                 </div>
                     </div>
                     </Grow>

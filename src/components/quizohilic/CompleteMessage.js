@@ -1,5 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
+import axios from 'axios';
+import withErrorHandler from '../errorHandler/withErrorHandler';
 import {connect} from 'react-redux';
 import {completeQuizohilic} from '../../actions/login';
 
@@ -42,11 +44,13 @@ class CompleteMessage extends React.Component {
 
   componentDidUpdate() {
     if(this.props.modal === 'Voilation') {
-    this.setSecondTime();
+     this.setSecondTime();
      this.props.handleSetActive();  
     }
   }
 
+
+  
   setSecondTime() {
     this.final = true;
     this.setState({secondTime: true})
@@ -65,12 +69,16 @@ class CompleteMessage extends React.Component {
     this.props.continueModal();
   }
   closeModal() {
-    this.props.dispatch(completeQuizohilic());
-    this.setState({ modalIsOpen: false });
-    this.props.closeModal();
+    axios.patch(`/api/auth/update/${this.props.id}`, {round: this.props.round, status: 'COMPLETED'}).then(res => {
+      console.log(res);
+      console.log('inside');
+      this.props.dispatch(completeQuizohilic());
+      this.setState({ modalIsOpen: false });
+      this.props.closeModal();
+    }).catch( error => {
+      console.log(error);
+    })
   }
-
-
 
   completeMessage() {
     return (
@@ -103,7 +111,7 @@ class CompleteMessage extends React.Component {
               <i className="fa fa-exclamation-circle" aria-hidden="true"></i>
               <h4>Quiz is not yet completed, Do you want to leave ?</h4>
               <div className="btn-yes-no"> 
-                <button className="button-yes shadow-sm" onClick={this.final ? this.closeModal : this.continueModal}>Yes</button>
+                <button className="button-yes shadow-sm" onClick={this.closeModal}>Okay</button>
               </div>
              
             </div>
@@ -154,4 +162,4 @@ class CompleteMessage extends React.Component {
   }
 }
 
-export default connect()(CompleteMessage);
+export default connect()(withErrorHandler(CompleteMessage, axios));
